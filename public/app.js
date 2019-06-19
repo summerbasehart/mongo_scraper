@@ -1,7 +1,7 @@
 const express = require('express')
 const axios = require('axios')
 const cheerio = require('cheerio')
-const express_handlebars = require('express-handlebars')
+const exphbs = require('express-handlebars')
 
 const app = express()
 
@@ -16,3 +16,10 @@ app.get('/scrape', (req, res) => {
   })
   .catch(e => console.log(e))
 })
+
+app.engine('handlebars', exphbs());
+app.set('view engine', 'handlebars');
+ 
+app.get('/', function (req, res) {
+    res.render('home');
+});
