@@ -8,8 +8,6 @@ const database = new Schema({
     note: String
 });
 
-var Article = mongoose.model("Article", database);
+var Article = db.model("Article", database);
 
 module.exports = Article
-
-export default Article
